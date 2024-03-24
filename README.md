@@ -19,3 +19,8 @@ There are some designs that can use.
 
 <!-- Pico -->
 <img src="https://github.com/leitoon/disenos/assets/43183222/650e14f0-828b-43c2-adfe-b7a8a8689d02" alt="pico" width="300">
+
+<!-- Gradient -->
+
+<img src="https://github.com/leitoon/disenos/assets/43183222/95550d5e-82d9-48bc-8ee4-cf8aee1831a7" alt="gradient" width="300">
+
