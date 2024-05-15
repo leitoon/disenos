@@ -1,5 +1,5 @@
 import 'dart:math';
-
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class CirculasProgressPage extends StatefulWidget {
@@ -9,8 +9,34 @@ class CirculasProgressPage extends StatefulWidget {
   State<CirculasProgressPage> createState() => _CirculasProgressPageState();
 }
 
-class _CirculasProgressPageState extends State<CirculasProgressPage> {
-  double porcentaje =10;
+class _CirculasProgressPageState extends State<CirculasProgressPage> with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+
+  double porcentaje =0.0;
+  double nuevoprcentaje=0.0;
+  
+  @override
+  void initState() {
+    super.initState();
+    controller= AnimationController(vsync: this, duration: const Duration(milliseconds: 800));
+    controller.addListener
+    (()
+     { 
+      //print('valor ${controller.value}');
+      
+      setState(() {
+              porcentaje= lerpDouble(porcentaje, nuevoprcentaje, controller.value)!;
+
+      });
+     });
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    controller.dispose();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold
@@ -18,22 +44,26 @@ class _CirculasProgressPageState extends State<CirculasProgressPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: ()
         {
-          porcentaje+=10;
-          if(porcentaje>100)
+          porcentaje=nuevoprcentaje;
+          nuevoprcentaje+=10;
+          if(nuevoprcentaje>100)
           {
+            nuevoprcentaje=0;
             porcentaje=0;
           }
+          controller.forward(from: 0.0);
+
           setState(() {
             
           });
         },
         backgroundColor: Colors.pink,
-        child: Icon(Icons.refresh),
+        child: const Icon(Icons.refresh),
         ),
       body: Center(
         child: Container
         (
-          padding: EdgeInsets.all(5),
+          padding: const EdgeInsets.all(5),
           width: 300,
           height: 300,
          
@@ -56,17 +86,17 @@ _MiRadialProgress(this.porcentaje);
 @override
   void paint(Canvas canvas, Size size) {
     //circulo completo
-    final paint= new Paint()
+    final paint= Paint()
     ..strokeWidth=4
     ..color= Colors.grey
     .. style = PaintingStyle.stroke;
-    final Offset center= new Offset(size.width*0.5, size.height*0.5);
+    final Offset center= Offset(size.width*0.5, size.height*0.5);
     final double radio= min(size.width*0.5, size.height*0.5);
 
     canvas.drawCircle(center, radio, paint);
 
     //arco
-    final paintArco= new Paint()
+    final paintArco= Paint()
     ..strokeWidth=10
     ..color= Colors.pink
     .. style = PaintingStyle.stroke;
