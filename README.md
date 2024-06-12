@@ -24,3 +24,8 @@ There are some designs that can use.
 
 <img src="https://github.com/leitoon/disenos/assets/43183222/95550d5e-82d9-48bc-8ee4-cf8aee1831a7" alt="gradient" width="300">
 
+
+## SliderPage
+
+https://github.com/leitoon/disenos/assets/43183222/2a7fc0d9-b28a-4230-b10b-d3c63fae668c
+
