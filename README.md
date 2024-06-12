@@ -1,10 +1,11 @@
-# App with diferents headers
+# App with diferents widgets
 
-In this project the object is make differents design of headers using custom painter. 
+In this project the object is make differents typical widgets. 
 There are some designs that can use.
 
-## Images
-
+## Custom painter
+In this project the object is make differents design of headers using custom painter. 
+There are some designs that can use.
 <!-- Curva -->
 <img src="https://github.com/leitoon/disenos/assets/43183222/0e1dd062-0bcb-4116-88cc-e0c9377c1e26" alt="curva" width="300">
 
