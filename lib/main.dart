@@ -1,5 +1,6 @@
-import 'package:disenos/src/pages/slidershow.dart';
 import 'package:flutter/material.dart';
+
+import 'src/pages/pinteres_page.dart';
 //import 'src/pages/graficas_circular.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Diseños app',
-      home: SlideshowPage(),
+      home: PinterestPage(),
     );
   }
 }
