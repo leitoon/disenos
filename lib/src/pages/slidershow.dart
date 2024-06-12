@@ -31,12 +31,12 @@ class MiSlider extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {            
     return Slideshow(
       puntosArriba: false,
       colorPrimario: Colors.pink,
       colorSecundario: Colors.grey,
-      bulletPrimario:18,
+      bulletPrimario:16,
       bulletSecundario:12,
       slides:<Widget>[
       SvgPicture.asset('assets/svgs/slide-1.svg'),

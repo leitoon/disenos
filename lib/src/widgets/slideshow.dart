@@ -182,24 +182,24 @@ class _SliderModel with ChangeNotifier {
   Color get colorPrimario => _colorPrimario;
   set colorPrimario(Color colorPrimario) {
     _colorPrimario = colorPrimario;
-    notifyListeners();
+    
   }
 
   Color get colorSecundario => _colorSecundario;
   set colorSecundario(Color colorSecundario) {
     _colorSecundario = colorSecundario;
-    notifyListeners();
+    
   }
 
   double get bulletPrimario => _bulletPrimario;
   set bulletPrimario(double bulletPrimario) {
     _bulletPrimario = bulletPrimario;
-    notifyListeners();
+    
   }
 
   double get bulletSecundario => _bulletSecundario;
   set bulletSecundario(double bulletSecundario) {
     _bulletSecundario = bulletSecundario;
-    notifyListeners();
+   
   }
 }
