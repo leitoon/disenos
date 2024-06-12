@@ -1,6 +1,3 @@
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
@@ -27,10 +24,9 @@ class PinterestMenu extends StatelessWidget {
     return Center(
       child: Container
       (
-      child: _MenuItems(menuItems:items),
-       width: 250,
+      width: 250,
        height: 60,
-       decoration: BoxDecoration
+       decoration: const BoxDecoration
        (
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(100)),
@@ -43,6 +39,7 @@ class PinterestMenu extends StatelessWidget {
         ]
 
        ),
+      child: _MenuItems(menuItems:items),
       ),
     );
   }
