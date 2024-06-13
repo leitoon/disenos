@@ -49,7 +49,7 @@ class Tile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(3),
+      margin: const EdgeInsets.all(3),
       height: extent,
       decoration: const BoxDecoration(
           color: Colors.blue, borderRadius: BorderRadius.all(Radius.circular(10))),
