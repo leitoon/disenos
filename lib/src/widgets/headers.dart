@@ -394,7 +394,7 @@ class _IconHeaderbackground extends StatelessWidget {
     return Container
     (
       width: double.infinity,
-      height: 300,
+      height: 280,
       decoration: BoxDecoration
       (
         
