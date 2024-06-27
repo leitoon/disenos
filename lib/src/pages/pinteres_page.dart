@@ -4,12 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:provider/provider.dart';
 
+import '../theme/theme.dart';
+
 class PinterestPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mostrar = Provider.of<MenuModel>(context).mostrar;
+    final appTheme= Provider.of<ThemeChander>(context).currentTheme;
 
     return Scaffold(
+      appBar: AppBar(),
       body: Stack(
         alignment: Alignment.center,
         children: [
@@ -19,7 +23,7 @@ class PinterestPage extends StatelessWidget {
             child: PinterestMenu(
               
               mostrar: mostrar,
-              activeColor: Colors.blue,
+              activeColor: appTheme.colorScheme.secondary,
               inactiveColor: Colors.black,
               items: [
 
@@ -29,7 +33,8 @@ class PinterestPage extends StatelessWidget {
               PinterestButton(onPressed: (){print('Icon super');}, icon: Icons.supervised_user_circle)
 
               ],
-              //backgroundColor: Colors.red,
+              backgroundColor: appTheme.scaffoldBackgroundColor,
+              
               ),
           ),
         ],
@@ -118,7 +123,7 @@ class Tile extends StatelessWidget {
       child: Center(
         child: CircleAvatar(
           backgroundColor: Colors.white,
-          child: Text('$index'),
+          child: Text('$index',style: const TextStyle(color: Colors.black),),
         ),
       ),
     );

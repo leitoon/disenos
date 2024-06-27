@@ -1,5 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../theme/theme.dart';
 
 class SliverListPage extends StatelessWidget {
   const SliverListPage({super.key});
@@ -8,6 +11,7 @@ class SliverListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold
     (
+      appBar: AppBar(),
       body: 
       //_ListaTareas()
       //_Titulo(),
@@ -32,10 +36,12 @@ class _BotonNewList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size= MediaQuery.of(context).size;
+    final appTheme= Provider.of<ThemeChander>(context);
+
     return ButtonTheme(
       child: ElevatedButton (
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(Color(0xffED6762)),
+          backgroundColor: MaterialStateProperty.all<Color>(appTheme.darkTheme? appTheme.currentTheme.colorScheme.secondary : Color(0xffED6762)),
           shape: MaterialStateProperty.all<RoundedRectangleBorder> (
             const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(topLeft: Radius.circular(50))
@@ -45,11 +51,12 @@ class _BotonNewList extends StatelessWidget {
         child: SizedBox(
           height: 100,
           width: size.width * 0.75,
-          child: const Center(
+          
+          child:  Center(
             child: Text(
               'CREATE A NEW LIST',
               style: TextStyle(
-                color: Colors.white,
+                color: appTheme.currentTheme.scaffoldBackgroundColor,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 2
@@ -57,7 +64,8 @@ class _BotonNewList extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: (){}
+        onPressed: (){},
+        
       )
     );
   }
@@ -79,6 +87,7 @@ class _MainScroll extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme= Provider.of<ThemeChander>(context).currentTheme;
     return Container
     (
       child: CustomScrollView(
@@ -92,7 +101,7 @@ class _MainScroll extends StatelessWidget {
             maxheight: 250, 
             child:Container
             (
-              color: Colors.white,
+              color: appTheme.scaffoldBackgroundColor,
               child:  _Titulo(),
             ))
           
@@ -154,6 +163,7 @@ class _Titulo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme= Provider.of<ThemeChander>(context);
     return Column
     (
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -163,9 +173,9 @@ class _Titulo extends StatelessWidget {
         Container
         (
           margin: const EdgeInsets.symmetric(horizontal: 30,vertical: 10),
-          child: const Text('New', style: TextStyle
+          child:  Text('New', style: TextStyle
           (
-            color: Color(0xff532128),
+            color: appTheme.darkTheme ? Colors.grey: Color(0xff532128),
             fontSize: 50
           ),),
         ),
@@ -185,7 +195,7 @@ class _Titulo extends StatelessWidget {
               
               width: 120,
               height: 8,
-              color: Color(0xffF7CDD5),
+              color:  appTheme.darkTheme ? Colors.grey: Color(0xffF7CDD5),
             )),
             Container
             (
@@ -237,6 +247,7 @@ class _ListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme= Provider.of<ThemeChander>(context);
     return Container
     (
       margin: const EdgeInsets.all(10),
@@ -245,11 +256,14 @@ class _ListItem extends StatelessWidget {
       padding: const EdgeInsets.all(30),
       decoration: BoxDecoration
       (
-        color: color,
+        color: appTheme.darkTheme ? Colors.grey :color,
         borderRadius: BorderRadius.circular(30)
       ),
       child: Text(titulo,
-      style: const TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20) ,),
+      style:  TextStyle(color:
+       Colors.white,
+       fontWeight: FontWeight.bold,
+       fontSize: 20) ,),
     );
   }
 }

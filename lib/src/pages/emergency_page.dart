@@ -4,6 +4,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:disenos/src/widgets/botonGordo.dart';
 import 'package:disenos/src/widgets/headers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ItemBoton {
@@ -53,6 +54,7 @@ List<Widget> itemMap= items.map(
 
       body: Stack(
         children: [
+          
           Container(
             margin: EdgeInsets.only(top: 260),
             child: ListView
@@ -79,7 +81,15 @@ List<Widget> itemMap= items.map(
               shape: CircleBorder(),
               padding: EdgeInsets.all(15),
               child: FaIcon(FontAwesomeIcons.ellipsisV, color: Colors.white)),
-          )
+          ),
+          Positioned(
+            left: 10,
+            top: 30,
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Icon(Icons.keyboard_arrow_left,size: 40,color: Colors.white,))),
         ],
       )
 

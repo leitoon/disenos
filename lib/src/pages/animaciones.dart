@@ -13,6 +13,7 @@ class _AnimationPageState extends State<AnimationPage> {
   Widget build(BuildContext context) {
     return Scaffold
     (
+      appBar: AppBar(),
       body: Center
       (
         child: CuadradoAnimado(),

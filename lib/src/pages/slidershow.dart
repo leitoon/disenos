@@ -4,14 +4,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
+
+import '../theme/theme.dart';
 
 class SlideshowPage extends StatelessWidget {
   
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold
+    return  Scaffold
     (
+      appBar: AppBar(),
       body: Center
       (
         child: Column(
@@ -31,10 +35,12 @@ class MiSlider extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {            
+  Widget build(BuildContext context) { 
+    final appTheme= Provider.of<ThemeChander>(context);
+    final accentColor= appTheme.currentTheme.colorScheme.secondary;           
     return Slideshow(
       puntosArriba: false,
-      colorPrimario: Colors.pink,
+      colorPrimario: appTheme.darkTheme ?accentColor: Colors.pink,
       colorSecundario: Colors.grey,
       bulletPrimario:16,
       bulletSecundario:12,
