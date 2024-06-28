@@ -1,25 +1,49 @@
 
 
+import 'package:disenos/src/pages/slidershow.dart';
 import 'package:disenos/src/routes/routes.dart';
 import 'package:disenos/src/theme/theme.dart';
+import 'package:disenos/src/widgets/slideshow.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
-class LauncherPage extends StatelessWidget {
+import '../../models/layout_model.dart';
+
+class LauncherTabletPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme= Provider.of<ThemeChander>(context);
+    final layoutmodel=Provider.of<LayoutModel>(context);
     return Scaffold
     (
       appBar: AppBar
       (
-        title: const Text('Diseños en flutter - tele'),
+        title: const Text('Diseños en flutter - tablet'),
       ),
-      body: _ListaOpciones(),
+      //body: _ListaOpciones(),
+
       drawer: _MenuPrincipal(),
+      body: Row(
+        children: [
+          Container
+          (
+            width: 300,
+            height: double.infinity,
+            child: _ListaOpciones(),
+          ),
+          Container
+          (
+            width: 1,
+            height: double.infinity,
+            color: (appTheme.darkTheme)? Colors.grey :  appTheme.currentTheme.colorScheme.secondary,
+          ),
+          Expanded(child: layoutmodel.currentPage)
+        ],
+      ),
     );
   }
 }
@@ -99,7 +123,9 @@ class _ListaOpciones extends StatelessWidget {
         title: Text(pageRoutes[i].tittle),
         trailing: Icon(Icons.chevron_right, color: appTheme.colorScheme.secondary,),
         onTap: () {
-           Navigator.push(context, CupertinoDialogRoute(builder: ( (context) => pageRoutes[i].page), context: context));
+           //Navigator.push(context, CupertinoDialogRoute(builder: ( (context) => pageRoutes[i].page), context: context));
+           final layoutmodel=Provider.of<LayoutModel>(context,listen: false);
+           layoutmodel.currentPage=pageRoutes[i].page;
         },
       ), 
       separatorBuilder: (context,i)=>Divider

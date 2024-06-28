@@ -84,11 +84,20 @@ class _PiteresGridState extends State<PiteresGrid> {
 
   @override
   Widget build(BuildContext context) {
+
+    int count;
+    if(MediaQuery.of(context).size.width>500)
+    {
+      count=3;
+    }else
+    {
+      count =2;
+    }
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: MasonryGridView.count(
         controller: controller,
-        crossAxisCount: 2,
+        crossAxisCount: count,
         mainAxisSpacing: 4,
         crossAxisSpacing: 4,
         itemCount: items.length,

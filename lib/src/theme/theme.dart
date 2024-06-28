@@ -64,9 +64,13 @@ class ThemeChander with ChangeNotifier
       _currentTheme=ThemeData.dark().copyWith
       (
       primaryColorLight: Colors.white,
+      
        
         scaffoldBackgroundColor:Color(0xff16202b),
+        primaryColor:Colors.blue,
+        
         textTheme: TextTheme(
+          
           bodyText1: TextStyle(color: Colors.white)
         )
        
